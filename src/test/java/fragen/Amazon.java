@@ -1,4 +1,4 @@
-package day05_JUnit;
+package fragen;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -64,32 +64,43 @@ public class Amazon {
 
         //5. Arama cubuguna “Nutella” yazip aratin
 
-        driver.findElement(By.xpath("//input[@class='gLFyf gsfi']")).sendKeys("nutella" + Keys.ENTER);
-
+        driver.findElement(xpath("//input[@class='gLFyf gsfi']")).sendKeys("nutella" + Keys.ENTER);
 
         // 6. Bulunan sonuc sayisini yazdirin
 
-        // List<WebElement> sonucsayisi= driver.findElement(By.xpath("//div[@id='result-stats']"));
+        List<WebElement> sonucsayisi = driver.findElements(xpath("//div[@id='result-stats']"));
 
-        //WebElement sonucYazsi=sonucsayisi.get(0);
-        //System.out.println("Cikan sonuc sayisi :" +sonucYazsi);
+        WebElement sonucYazsi = sonucsayisi.get(0);
 
-        String[] sonucText = driver.findElement(By.xpath("//div[@id='result-stats']")).getText().split(" ");
-        String sonucSayisi = sonucText[1];
-        System.out.println("Bulunan sonuc sayisi = " + sonucSayisi);
+        System.out.println("Cikan sonuc sayisi :" + sonucYazsi.getText());
+
+
+        List<WebElement> linklerListesi = driver.findElements(By.tagName("a"));
+        System.out.println("sayfadaki link sayisi : " + linklerListesi.size());
+
+        for (WebElement each : linklerListesi
+        ) {
+            System.out.println(each.getText());
+        }
+
 
         // 7. sonuc sayisinin 10 milyon’dan fazla oldugunu test edin
 
-        sonucSayisi = sonucSayisi.replaceAll("\\D", "");
+        String[] sonuc = sonucYazsi.getText().split(" ");
+        String sonucSayisi = sonuc[1];
+
+        sonucSayisi=sonucSayisi.replaceAll("\\D","");
+
         int istenenSayi = 10000000;
 
-        if (Integer.parseInt(sonucSayisi) > istenenSayi) {
+        if (Integer.parseInt(sonucSayisi)> istenenSayi) {
 
             System.out.println("Sonuc testi PASSEND");
         } else System.out.println("Sonuc testi FAIELD");
 
         //8. kapatma
-        driver.close();
+        //  @After
+
 
     }
 

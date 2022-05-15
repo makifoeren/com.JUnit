@@ -12,6 +12,8 @@ public class Tanim {
     Birden fazla IDE inelij eclipse vs ve araclari (tools) calisir
     Open seurce.
     Genis kullanic tabanli
+    Proje gelistirmenin kolaylastirilmasi ve birlikte calismanin saglanmasi
+
 
     Pom.xml --> Maven in en onemli dosyasi.Dpendicies i POM dosyaaina ekler ve POM dosyasindan yonetiriz
 
@@ -24,6 +26,16 @@ public class Tanim {
     Selenium da kodlari yazarken @ baslanir
     Bilgi barindiran ve veriyi saklyan basit bir yapidir
     @Test
+    main i bitirmis olduk eklenmezse method calismaz
+    Yazdigimiz bazimmethod lari henuz tamamlamamis veya degisiklike
+    ugrayabileceginden doayi test sirasinda calistirilmasini istemiyorsak     @Ignore eklenir
+        @Ignore("aciklama") method u neden test edilmedigi yazilabilir
+
+    @AfterClass   @BeforeClass
+    @Befor   @After
+
+
+
 
 
      */

@@ -1,4 +1,4 @@
-package team;
+package fragen;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
