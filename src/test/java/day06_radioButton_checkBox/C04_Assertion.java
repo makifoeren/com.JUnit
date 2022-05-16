@@ -53,6 +53,7 @@ public class C04_Assertion {
         String expectedUrl = "https://www.facebook.com";
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals("Bu kod hata oldugunda calisir",expectedUrl,actualUrl);
+       // Assert.assertNotEquals("Bu kod hata oldugunda calisir",expectedUrl,actualUrl); Process finished with exit code 0
 
           /*
         Assert ile yaptigimiz testlerde assertion failed olursa

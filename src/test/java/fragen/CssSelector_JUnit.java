@@ -43,15 +43,15 @@ public class CssSelector_JUnit {
 
         Thread.sleep(1000);
 
-        //  b. Locate email textbox  1.tagname attribut name value
+        //  b. Locate email textbox  1.tagname attribut name value  //css=tagName[attribute name='value']
         WebElement eMailTextBox = driver.findElement(By.cssSelector("input[name='session[email]']"));
 
 
-        //  c. Locate password textbox 2. yontem id value ile calisir
+        //  c. Locate password textbox 2. yontem id value ile calisir   //css="tagname#idValue" veya css="#idValue"
         WebElement passwordTextBox = driver.findElement(By.cssSelector("input#session_password"));
 
 
-        //  d. Locate signin button 3. class value ile calisan
+        //  d. Locate signin button 3. class value ile calisan //css="tagname.classValue" veya n css=".classValue"
         WebElement signInButton = driver.findElement(By.cssSelector("input[name='commit']"));
 
 

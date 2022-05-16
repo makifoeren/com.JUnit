@@ -23,6 +23,7 @@ public class BeinSport {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.navigate().to("https://beinsports.com");
     }
 
     @After
@@ -34,7 +35,7 @@ public class BeinSport {
     public void test01() {
         // 1) Bir class oluşturun: BeinSportAssertions
         // 2) https://https://beinsports.com.tr/adresine gidin
-        driver.get("https://beinsports.com");
+
 
         //Turkey ekranini secin
         driver.findElement(By.xpath("//a[@href='https://tr.beinsports.com']")).click();
@@ -42,7 +43,9 @@ public class BeinSport {
         // Ekranda cikan uyariyi "daha sonra "onaylayin ve "cerezleri reddedin"
 
         driver.findElement(By.xpath("//*[text()='Reklam Çerezlerini Reddet']")).click();
-        //   driver.findElement(By.xpath("//*[text()='Daha Sonra']")).click();
+       driver.findElement(By.xpath("//*[text()='Daha Sonra']")).click(); //div[@id='btn-later']
+      //driver.findElement(By.xpath("//div[@id='btn-later']")).click();
+      //driver.findElement(By.id("btn-later")).click();
 
     }
     // 3) Aşağıdaki adları kullanarak 3 test metodu oluşturun ve gerekli testleri yapin
