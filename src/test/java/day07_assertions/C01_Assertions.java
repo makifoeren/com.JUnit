@@ -28,6 +28,7 @@ public class C01_Assertions {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+        driver.get("https://www.amazon.de/");
 
     }
 
@@ -43,7 +44,7 @@ public class C01_Assertions {
     @Test
     public void test01() {
         //    1- Url'in amazon icerdigini test edin
-        driver.get("https://www.amazon.de/");
+
         String arananKelime = "amazon";
         String actualUrl = driver.getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(arananKelime));
@@ -62,7 +63,7 @@ public class C01_Assertions {
     public void test03() {
         //    3- sol ust kosede amazon logosunun gorundugunu test edin
         WebElement logo = driver.findElement(By.id("nav-logo-sprites"));
-        Assert.assertFalse(logo.isDisplayed());
+        Assert.assertTrue(logo.isDisplayed());
 
 
     }
