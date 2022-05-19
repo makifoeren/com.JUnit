@@ -17,17 +17,28 @@ import static io.netty.util.ResourceLeakDetector.isEnabled;
 public class C04_IFrame {
 
     /*
-    Bir web sitesinde baska bir web sitesi yerlestirlmis.
+    Bir web sitesinde baska bir web sitesi yerlestirlmis.HTML de bunun icin ifarme olusturulur.
+    her bir ifarme kendi icinde bir web sayfasi gibi HTML kodlardan olusur(html.head ve body tagi gibi)
+    Bir web element dogru locot etmemize ragmen driver o webelemti bulamiyorsa,bu ifarme icerisinde olabilir
+    Bu durumda HTML kodlarini incelemmiz gereki
+
     Bir sayfada ifarme varsa Selenium elementleri dogrudan gormez
     switchTo method u ile ifarme gecmenin 3 yolu vardir
     1--- indexs ile
     driver.switchto().frame(index of iframe); // index 0 dan baslar
 
-    2-- id veya name ile calue
+    2-- id veya name ile value
     driver.switchto().frame("id of the ifarme");
 
     3--WebElement ile
      driver.switchto().frame(WebElement of the ifarme);
+
+     Ifarme Alert ten farklidir
+     switchTo ile ifarme ye gecince orada cikincaya kadar driver o ifarmede kalir
+     bu surede asil sayfadaki web elemtleri goremz
+     Ifarmeden cikmak icin 2 yontem vardir
+     1---defaultContent()-->ana sayfaya cikar
+     2---parentFrame()-->bir ust frame cikar (ic ice iframe olan sayfalarda kullanilabilir)
 
      */
 

@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chromium.ChromiumDriver;
+
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
@@ -35,7 +35,7 @@ public class Q6 {
 
     @After
     public void tearDown() {
-       // driver.close();
+       driver.close();
     }
 
     @Test
@@ -50,8 +50,16 @@ public class Q6 {
         WebElement dropDown=driver.findElement(By.xpath("//select[@id='searchDropdownBox']"));
         Select select = new Select(dropDown);
         select.selectByIndex(3);
+        System.out.println("select.getFirstSelectedOption().getText() = " + select.getFirstSelectedOption().getText());
 
-        select.getOptions().stream().forEach(t-> System.out.println(t.getText()));
+        //for (WebElement each:select.getOptions()
+        //) {
+
+          //  System.out.println(each.getText());
+        //}
+
+
+       select.getOptions().stream().forEach(t-> System.out.println(t.getText()));
 
 
         // 3. Arama kutusuna Les Miserables yazalım ve arama yapalim.

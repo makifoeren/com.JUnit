@@ -29,7 +29,7 @@ WebDriver driver;
 
     @After
     public void tearDown(){
-        //driver.close();
+   driver.close();
     }
 
     /* herhangi bir web sitesine gidince veya
@@ -40,8 +40,13 @@ WebDriver driver;
           tum webelementler gibi locate edip istedigimiz islemleri yapabiliriz
           driver.get("https://www.facebook.com"); da cikan alert vb..
 
-          Ancak web uygulamalarinda HTML alert yaninda java script alert de bulunabilir
-          js alert'ler locate edilemez
+          Ancak web uygulamalarinda HTML alert sag click ypip incelebnebilir,dolayisiyla web elementler gibidir.
+           yaninda java script alert de bulunabilir
+          js alert'ler locate edilemez webelemntlerden farklidir
+          driver.swictchTo.alert methodu ile alerte gecip , omdan sonra
+          accept,dismiss,sendKeys veta getText methodlari kullanilabilir
+          Art arda bileolsa alert yapmak istedigimiz her seferde swichto kullanmaliyiz
+
           Selenium'da JS alert'ler icin ozel bir yontem gelistirmistir
 
           ---Click for JS Alert 1.Simple Alert : Bu basit alert ekranda bazi bilgiler veya uyarilar görüntüler.

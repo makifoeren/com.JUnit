@@ -11,6 +11,15 @@ import java.time.Duration;
 
 public class C03_BasicAuthentication {
 
+    /*
+    BasicAuthentication Normal olarak web sitelerinde login fonksiyonu icin kullanici adi ve sifre webelemntlerini
+    girip login butonuna basariz.Ancak bazi web sitelerinde  ozellikle API haberlesmesinde kullanici
+    adi ve sifreyi manuel olarak tektek girrmek yerine servis saglayicinin bize verecegi bilgiler dogrultusunda
+    kullanici adi ve sifreyi URL e ekleyebiliriz.
+    Boylece sayfya gitme ve login fonksiyonu birlikte halledilmis olur.
+
+     */
+
     static WebDriver driver;
 
     @BeforeClass
