@@ -1,4 +1,5 @@
-package day07_assertions;
+package fragen;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
@@ -13,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class DropDownWebApp {
+public class DropDoenWebApp {
 
 
     WebDriver driver;
@@ -28,7 +29,7 @@ public class DropDownWebApp {
 
     @After
     public void tearDown() {
-        driver.close();
+         driver.close();
     }
 
     @Test
@@ -62,16 +63,21 @@ public class DropDownWebApp {
         Thread.sleep(1000);
 
         //8. “Currency” drop down menusunden Eurozone’u secin
-        WebElement dropDownMenu = driver.findElement(By.xpath("//select[@id='pc_currency']"));
-        Select select = new Select(dropDownMenu);
+        WebElement ddm = driver.findElement(By.xpath("//select[@id='pc_currency']"));
+        Select select = new Select(ddm);
         select.selectByIndex(6);
-        Thread.sleep(1000);
+
+        //yazdirin
+        System.out.println("select.getFirstSelectedOption().getText() = " + select.getFirstSelectedOption().getText());
+
+        //    kategorilerin hepsini konsola yazdiralim
+        select.getOptions().stream().forEach(t -> System.out.println(t.getText()));
+
 
         //9. “amount” kutusuna bir sayi girin
+
         driver.findElement(By.xpath("//input[@id='pc_amount']")).sendKeys("350");
         Thread.sleep(1000);
-
-
         //10. “US Dollars” in secilmedigini test edin
         WebElement usDoll = driver.findElement(By.id("pc_inDollars_true"));
         Assert.assertFalse(usDoll.isSelected());
@@ -89,17 +95,16 @@ public class DropDownWebApp {
         driver.findElement(By.id("purchase_cash")).click();
         Thread.sleep(1000);
 
+
         //13. “Foreign currency cash was successfully purchased.” yazisinin ciktigini kontrol edin.
-        String actualYazi = driver.findElement(By.xpath("//div[@id='alert_content']")).getText();
-        String expectedYazi = "Foreign currency cash was successfully purchased..";
-        Thread.sleep(1000);
-
-        // Assert.assertEquals(expectedYazi,actualYazi);
-        Assert.assertTrue(expectedYazi.contains(actualYazi));
-
-
+        String actuelYazi = driver.findElement(By.xpath("//div[@id='alert_content']")).getText();
+        String expectedYazi = "ajjkabkfdnsklö";
+        Assert.assertTrue(actuelYazi.contains(expectedYazi));
+      //  Assert.assertEquals(expectedYazi,actuelYazi);
 
     }
 
 
 }
+
+
