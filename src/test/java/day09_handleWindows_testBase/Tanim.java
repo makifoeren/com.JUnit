@@ -1,9 +1,10 @@
-package day_9;
+package day09_handleWindows_testBase;
 
 public class Tanim {
 
     /*
-    1-- Windoe handling: Bazen bir otomasyonda icinde
+    1-- Windoe handling: Bazen bir otomasyonda icinde oldugumuz sayfadan baska bir
+    sekme veya baska bir window a yonelebililiriz.
 
     2--Eger kontrollu olarak yeni sayfaya geciyorssak
     Driver.switchTo().newWindow(Window type) diyerek yeni bir sekme veya yeni bir pencere acrsak.
@@ -13,7 +14,7 @@ public class Tanim {
     once ilk sayfanin window handle degerini alip bir String variable ye assing edebiliriz.
     Boylece istedigimiyz anda bu handle degerini kullanaraak ilk sayfaya donebiliriz
 
-    Eger yeni sayfa acilmasi tikladigimiz bir link ile oluyorsa driver yeni sayfaya GECMEZ bu durmda ilk sayfa ve
+    3--Eger yeni sayfa acilmasi tikladigimiz bir link ile oluyorsa driver yeni sayfaya GECMEZ bu durmda ilk sayfa ve
     ikici sayfanin window handle degerlerini bulup bu handle degerini ile sayfalari arasinda gecis ypmamiz gerekir
 
     ---Ilk olarak ilk sayfada iken window handle degeri alip String bir variable a assing ederiz.

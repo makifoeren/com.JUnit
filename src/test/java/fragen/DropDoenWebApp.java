@@ -29,7 +29,7 @@ public class DropDoenWebApp {
 
     @After
     public void tearDown() {
-         driver.close();
+      //   driver.close();
     }
 
     @Test
@@ -98,7 +98,7 @@ public class DropDoenWebApp {
 
         //13. “Foreign currency cash was successfully purchased.” yazisinin ciktigini kontrol edin.
         String actuelYazi = driver.findElement(By.xpath("//div[@id='alert_content']")).getText();
-        String expectedYazi = "ajjkabkfdnsklö";
+        String expectedYazi = "Foreign currency cash was successfully purchased.";
         Assert.assertTrue(actuelYazi.contains(expectedYazi));
       //  Assert.assertEquals(expectedYazi,actuelYazi);
 
