@@ -27,7 +27,7 @@ public class Test1 {
     @After
     public void tearDown() {
         //8-Sayfayi kapatin
-        driver.close();
+       // driver.close();
     }
 
     @Test
