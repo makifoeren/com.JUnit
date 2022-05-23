@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
-public class Q6 {
+public class Q06_DropDown {
 
 
     WebDriver driver;

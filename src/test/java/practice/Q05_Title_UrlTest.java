@@ -13,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class Q5 {
+public class Q05_Title_UrlTest {
        /*
        ...Exercise5...
       @BeforeClass ın icerisinde driver i kuralim

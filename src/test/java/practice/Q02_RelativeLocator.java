@@ -11,7 +11,7 @@ import org.openqa.selenium.support.locators.RelativeLocator;
 
 import java.time.Duration;
 
-public class Q2 {
+public class Q02_RelativeLocator {
     /*
      ...Exercise2...
      http://www.bestbuy.com 'a gidin,

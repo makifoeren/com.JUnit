@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 
-public class Q4 {
+public class Q04_Interview {
 
     /*
   ...Exercise4...
