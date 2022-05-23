@@ -58,5 +58,7 @@ public class Actions01 extends TestBase {
         //8- “Double click me" butonunu cift tiklayin
         WebElement doubleClicButonu=driver.findElement(By.xpath("//h2"));
         actions.doubleClick(doubleClicButonu).perform();
+
+
     }
 }
