@@ -125,7 +125,7 @@ public class DropDown_Assert {
         Assert.assertTrue(isimIleKayit.isDisplayed());
 
         //17. Click 'Delete Account' button
-        //driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
+        driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
 
 
         //18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button..
