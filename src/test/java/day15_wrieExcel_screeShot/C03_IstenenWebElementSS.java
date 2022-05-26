@@ -1,4 +1,4 @@
-package fragen;
+package day15_wrieExcel_screeShot;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
@@ -13,9 +13,8 @@ import utilities.TestBase;
 import java.io.File;
 import java.io.IOException;
 
-public class Keyboard extends TestBase {
+public class C03_IstenenWebElementSS extends TestBase {
 
-    //1- Bir Class olusturalim KeyboardActions1
 
 
     @Test
@@ -50,15 +49,11 @@ public class Keyboard extends TestBase {
 
         Assert.assertTrue(actualYazi.contains(expectedYazi));
 
-
-
         //ISTENEN ELEMENTIN FOTOSUNU CEKELIM
         WebElement sonucYaziElementi = driver.findElement
                 (By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
-
-        //kaydedecegimiz yer kalici dosyanin kayit yeri
+            //kaydedecegimiz yer kalici dosyanin kayit yeri
         File sonucYaziElemetSS = new File("target/ekrangoruntuleri/sonucYazisiSS.jpeg");
-
         // gecici dosyamiz
         File temp = sonucYaziElementi.getScreenshotAs(OutputType.FILE);
 

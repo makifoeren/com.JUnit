@@ -30,20 +30,27 @@ public class C01_ReadExcel {
         String dosyaYolu="src/resources/ulkeler.xlsx";
 
         //8. FileInputStream objesi olusturup,parametre olarak dosya yolunu girelim
-        FileInputStream fis= new FileInputStream(new File(dosyaYolu)); // okumasini sagliyor
+        FileInputStream fis= new FileInputStream(new File(dosyaYolu));
+                    // input excel i alip okumasini yapiyor
 
         //9. Workbook objesi olusturalim,parameter olarak fileInputStream objesini girelim
         Workbook workbook= WorkbookFactory.create(fis);
+        // Selenium da java ile olusan workbook obj kaydettik
+        // calisma kitabi kopyasi olusturuldu,fis araciligi ile excel yuklendi
+        // excel in fabrikasi
 
         //10. WorkbookFactory.create(fileInputStream)
         //11. Worksheet objesi olusturun workbook.getSheetAt(index)
         Sheet sheet=workbook.getSheet("Sayfa1");
+        // fis uzerinden workbook tan var olanin bilgisini okuyacaz
 
         //12. Row objesi olusturun sheet.getRow(index)
         Row row=sheet.getRow(3);
+        // sayfadan satira ulasmak icinyukaridaki sheet obj sindan index 0 dan basliyor
 
         //13. Cell objesi olusturun row.getCell(index)
         Cell cell=row.getCell(3);
+        //row uzerinden 3. huceyi getirsin
 
         System.out.println("cell = " + cell);
 
