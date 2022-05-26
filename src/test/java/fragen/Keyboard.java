@@ -42,11 +42,14 @@ public class Keyboard extends TestBase {
         Thread.sleep(1000);
 
         //4- aramanin gerceklestigini test edin
+
+
         WebElement aramaKontrol = driver.findElement(By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
         String expectedYazi = "samsung A71";
         String actualYazi = aramaKontrol.getText();
 
         Assert.assertTrue(actualYazi.contains(expectedYazi));
+
 
         WebElement sonucYaziElementi=driver.findElement
                 (By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
