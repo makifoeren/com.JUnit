@@ -13,7 +13,7 @@ Driver.manage( ). method’u ile cookie’leri
 - Var olan tum cookie’leri silebiliriz
 
 tr - row (satir)
-th - horizontal (satir)
+th - horizontal (sutun)
 td- data (hucre
 
 1-- Web Tables: HTML de bazi webelementleri organize bir sekilde kullanmak tercih edilebilir

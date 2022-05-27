@@ -1,3 +1,4 @@
+
 package day13_cookies_webTables;
 
 import org.junit.Test;
@@ -12,76 +13,61 @@ import java.util.List;
 public class C02_WebTables extends TestBase {
 
     @Test
-    public void webTable() {
-
-        //● login( ) metodun oluşturun ve oturum açın.
-        //● https://www.hotelmycamp.com admin/HotelRoomAdmin adresine gidin
-        //          ○ Username : manager
-        //          ○ Password : Manager1!
-
-        girisYap();
-
-        //○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
-        List<WebElement> sutunBasliklariListesi=driver.findElements(By.xpath("//thead//tr[1]//th[3]"));
-        System.out.println("sutun  sayisi :" + sutunBasliklariListesi.size());
-
-        //          ○ Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.
-
-        // Tum body'i bir String olarak yazdirmak isterseniz
-        // body webElementini locate edip, getText() method'u ile yazdirabilirsiniz
-
-        WebElement tumBody=driver.findElement(By.xpath("//tbody"));
-        System.out.println(tumBody.getText());
-
-
-
-        //● printRows( ) metodu oluşturun //tr
-        //          ○ table body’sinde bulunan toplam satir(row) sayısını bulun.
-
-        List<WebElement> satirlarListesi=driver.findElements(By.xpath("//tbody//tr"));
-        System.out.println("satir  sayisi :" + satirlarListesi.size());
-
-
-        //          ○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
-        for (WebElement each:satirlarListesi
-             ) {
-            System.out.println(each.getText());
-        }
-
-        //          ○ 4.satirdaki(row) elementleri konsolda yazdırın.
-
-        List<WebElement> cellList = driver.findElements(By.xpath("//tbody//tr[4]//td"));
-        for (WebElement each : cellList
-        ) {
-            System.out.println(each.getText());
-        }
-
-        //          Email basligindaki tum elementleri(sutun) konsolda yazdırın.
+    public void test01() {
+        loginGiris();
+        tableMetodu();
+        printRowsMetodu();
+    }
+    private void printRowsMetodu() {
+//○table body’sinde bulunan toplam satir(row) sayısını bulun.
+        List<WebElement> BodySatiSayisi=driver.findElements(By.xpath("//tbody//tr"));
+        System.out.println("satir Sayisi " + BodySatiSayisi.size());
+//            ○Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
+        WebElement tumbadyler=driver.findElement(By.xpath("//tbody"));
+        System.out.println(tumbadyler.getText());
+//            ○4.satirdaki(row) elementleri konsolda yazdırın.
+        WebElement dorduncuSatir=driver.findElement(By.xpath("//tbody//tr[4]"));
+        String dorduncuSatirr=dorduncuSatir.getText();
+        System.out.println("dorduncuSatir = " + dorduncuSatirr);
+        // Email basligindaki tum elementleri(sutun) konsolda yazdırın.
         // once email basliginin kacinci sutunda oldugunu bulalim
-        List<WebElement> basliklarListesi = driver.findElements(By.xpath("//thead//tr[1]//th"));
-        int emailSutunNo = 0;
-        for (int i = 0; i < basliklarListesi.size(); i++) {
-            if (basliklarListesi.get(i).getText().equals("Email")) {
-                emailSutunNo = i;
+        List<WebElement> basliklarListesi=driver.findElements(By.xpath("//thead//tr[1]/th"));
+        int emailStunNo=0;
+        for (int i = 0; i <basliklarListesi.size(); i++) {
+            if (basliklarListesi.get(i).getText().equals("Email")){
+                emailStunNo=i;
             }
         }
-        List<WebElement> emailSutunListesi =
-                driver.findElements(By.xpath("//tbody//td[" + (emailSutunNo + 1) + "]"));
-        for (WebElement each : emailSutunListesi) {
+        System.out.println("email sutun sayusi  "+emailStunNo);
+        //List<WebElement> emailStunListesi=driver.findElements(By.xpath("//tbody//tr//td[3]"));
+        List<WebElement> emailStunListesi=driver.findElements(By.xpath("//tbody//td["+(emailStunNo+1)+"]"));
+        for (WebElement each: emailStunListesi) {
             System.out.println(each.getText());
         }
     }
-
-        public void girisYap() {
-            driver.get("https://www.hotelmycamp.com");
-            driver.findElement(By.linkText("Log in")).click();
-            Actions actions = new Actions(driver);
-            WebElement username = driver.findElement(By.id("UserName"));
-            actions.click(username).
-                    sendKeys("manager").
-                    sendKeys(Keys.TAB).
-                    sendKeys("Manager1!").
-                    sendKeys(Keys.ENTER).
-                    perform();
-        }
+    private void tableMetodu() {
+        //○Tüm table body’sinin boyutunu(s utun sayisi ) bulun. /tbody
+        //○Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.
+        List<WebElement> basliktakiSutunSayisi=driver.findElements(By.xpath("//thead//tr[1]//th"));
+        System.out.println("basliktakiSutunSayisi sayisi= " + basliktakiSutunSayisi.size());
+        WebElement tumbadyler=driver.findElement(By.xpath("//tbody"));
+        System.out.println(tumbadyler.getText());
     }
+    private void loginGiris() {
+        //●login(login() metodun oluşturun ve oturum
+        //●https://www.hotelmycamp.com admin/HotelRoomAdmin adresine gidin
+        //            ○Username : manager
+        //○Password : Manager 1
+        driver.get("https://www.hotelmycamp.com");
+        driver.findElement(By.linkText("Log in")).click();
+        Actions actions = new Actions(driver);
+        WebElement username = driver.findElement(By.id("UserName"));
+        actions.click(username).
+                sendKeys("manager").
+                sendKeys(Keys.TAB).
+                sendKeys("Manager1!").
+                sendKeys(Keys.ENTER).
+                perform();
+    }
+
+}
