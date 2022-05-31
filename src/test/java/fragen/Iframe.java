@@ -28,6 +28,9 @@ public class Iframe extends TestBase {
         String popunMsjYazi=popunMsj.getText();
         System.out.println("popunMsjYazi = " + popunMsjYazi);
 
+        System.out.println(popunMsj.getText());
+
+
         //5. “close” butonuna basin
         driver.findElement(By.xpath("//*[text()='Close']")).click();
 

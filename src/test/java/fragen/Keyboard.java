@@ -32,17 +32,12 @@ public class Keyboard extends TestBase {
         Actions actions = new Actions(driver);
         actions.click(aramaKutusu).sendKeys("samsung").
                 sendKeys(Keys.SPACE).
-                keyDown(Keys.SHIFT).
-                sendKeys("a").
-                keyUp(Keys.SHIFT).
-                sendKeys("71").
-                sendKeys(Keys.ENTER).
-                perform();
+                keyDown(Keys.SHIFT).sendKeys("a").keyUp(Keys.SHIFT).sendKeys("71").
+                sendKeys(Keys.ENTER).perform();
 
-        Thread.sleep(1000);
+        Thread.sleep(2000);
 
         //4- aramanin gerceklestigini test edin
-
 
         WebElement aramaKontrol = driver.findElement(By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
         String expectedYazi = "samsung A71";
@@ -51,13 +46,13 @@ public class Keyboard extends TestBase {
         Assert.assertTrue(actualYazi.contains(expectedYazi));
 
 
-
         //ISTENEN ELEMENTIN FOTOSUNU CEKELIM
         WebElement sonucYaziElementi = driver.findElement
                 (By.xpath("(//div[@class='a-section a-spacing-small a-spacing-top-small'])[1]"));
 
         //kaydedecegimiz yer kalici dosyanin kayit yeri
         File sonucYaziElemetSS = new File("target/ekrangoruntuleri/sonucYazisiSS.jpeg");
+
 
         // gecici dosyamiz
         File temp = sonucYaziElementi.getScreenshotAs(OutputType.FILE);
